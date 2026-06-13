@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Planet – Web Dev Tasks</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">⬡ ApexDev</span>
+  <ul class="nav-links">
+    <li><a href="#contact" class="active">Contact Form</a></li>
+    <li><a href="#todo">To-Do List</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+    
+  <div class="hero-tag">Apex Planet Internship · Day 1 + Task 2</div>
+  <h1>Intermediate <span>HTML, CSS &amp; JS</span></h1>
+  <p>Contact form with validation · Responsive Flexbox/Grid layout · DOM manipulation with To-Do &amp; Gallery</p>
+</div>
+
+<div class="page-wrap">
+
+  <div class="section-label" id="contact">Task 1 — Contact Form &amp; JS Validation</div>
+
+  <div class="content-grid">
+
+    <div class="card">
+      <h2>Contact us</h2>
+
+      <div class="success-banner" id="formSuccess">
+        ✅ &nbsp;Message sent! We'll reply within 24 hours.
+      </div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" placeholder="Arind Kumar" />
+          <div class="err-msg" id="nameErr">Name must be at least 2 characters.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="arind@example.com" />
+          <div class="err-msg" id="emailErr">Enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 98765 43210" />
+          <div class="err-msg" id="phoneErr">Enter a valid 10-digit phone number.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject">
+            <option value="">— Choose a topic —</option>
+            <option value="internship">Internship Enquiry</option>
+            <option value="project">Project Collaboration</option>
+            <option value="support">Technical Support</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="err-msg" id="subjectErr">Please select a subject.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" placeholder="Write your message here…"></textarea>
+          <div class="err-msg" id="messageErr">Message must be at least 10 characters.</div>
+        </div>
+
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button type="submit" class="btn btn-primary">Send message →</button>
+          <button type="button" id="resetBtn" class="btn btn-ghost">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>How validation works</h2>
+      <div style="display:flex; flex-direction:column; gap:0.9rem;">
+
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border:1px solid var(--clr-border);">
+          <div style="font-size:0.8rem; font-weight:600; color:var(--clr-accent); margin-bottom:0.4rem;">Required fields</div>
+          <div style="font-size:0.83rem; color:var(--clr-muted);">Name, Email, Subject, and Message must be filled in before the form submits.</div>
+        </div>
+
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border:1px solid var(--clr-border);">
+          <div style="font-size:0.8rem; font-weight:600; color:var(--clr-accent); margin-bottom:0.4rem;">Email format check</div>
+          <div style="font-size:0.83rem; color:var(--clr-muted);">Validated using a regex: must include @ and a domain (e.g. user@mail.com).</div>
+        </div>
+
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border:1px solid var(--clr-border);">
+          <div style="font-size:0.8rem; font-weight:600; color:var(--clr-accent); margin-bottom:0.4rem;">Real-time feedback</div>
+          <div style="font-size:0.83rem; color:var(--clr-muted);">Fields turn green ✓ when valid and red when something's wrong — as you type.</div>
+        </div>
+
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border:1px solid var(--clr-border);">
+          <div style="font-size:0.8rem; font-weight:600; color:var(--clr-accent); margin-bottom:0.4rem;">Phone (optional)</div>
+          <div style="font-size:0.83rem; color:var(--clr-muted);">If entered, must be exactly 10 digits. If left blank, no error is shown.</div>
+        </div>
+
+        <div style="margin-top:auto; padding:0.85rem; background:rgba(108,99,255,0.07); border-radius:8px; border:1px solid rgba(108,99,255,0.2);">
+          <div style="font-size:0.8rem; font-weight:600; color:var(--clr-accent); margin-bottom:0.4rem;">Input types used</div>
+          <div style="font-size:0.83rem; color:var(--clr-muted);">
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">type="text"</code>&nbsp;
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">type="email"</code>&nbsp;
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">type="tel"</code>&nbsp;
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">&lt;select&gt;</code>&nbsp;
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">&lt;textarea&gt;</code>&nbsp;
+            <code style="background:var(--clr-surface);padding:1px 5px;border-radius:3px;font-size:0.78rem;">type="submit"</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label" id="todo" style="margin-top:1rem;">Task 2 — DOM Manipulation</div>
+
+  <div class="content-grid">
+
+    <div class="card">
+      <h2>📋 To-Do List</h2>
+
+      <div class="todo-input-row">
+        <input type="text" id="todoInput" placeholder="Add a new task…" maxlength="80" />
+        <button type="button" id="addTodoBtn" class="btn btn-primary btn-sm">Add</button>
+      </div>
+
+      <div class="todo-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="done">Done</button>
+      </div>
+
+      <ul class="todo-list" id="todoList"></ul>
+
+      <div class="todo-stats">
+        <span id="todoCount">0 tasks left</span>
+        <button type="button" id="clearDoneBtn" class="btn btn-sm btn-danger" style="display:none;">Clear done</button>
+      </div>
+    </div>
+
+    <div class="card" id="gallery">
+      <h2>🖼 Image Gallery</h2>
+
+      <div class="gallery-upload">
+        <label for="imgUpload" class="btn btn-primary btn-sm" style="cursor:pointer;">+ Upload images</label>
+        <input type="file" id="imgUpload" accept="image/*" multiple />
+        <button type="button" id="sampleBtn" class="btn btn-ghost btn-sm">Load samples</button>
+        <button type="button" id="clearGalleryBtn" class="btn btn-danger btn-sm">Clear all</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-empty" id="galleryEmpty">No images yet. Upload or load samples.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content-grid" style="margin-top:0;">
+    <div class="card span-full">
+      <h2>📐 Layout: Flexbox + CSS Grid + Media Queries</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:0.9rem; margin-top:0.5rem;">
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border-left:3px solid var(--clr-accent);">
+          <div style="font-weight:600; font-size:0.85rem; margin-bottom:0.3rem;">Flexbox — Navigation</div>
+          <div style="font-size:0.8rem; color:var(--clr-muted);">The top nav uses <code style="font-size:0.75rem;">display:flex</code> with <code style="font-size:0.75rem;">justify-content:space-between</code> for logo + links layout.</div>
+        </div>
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border-left:3px solid var(--clr-accent2);">
+          <div style="font-weight:600; font-size:0.85rem; margin-bottom:0.3rem;">CSS Grid — Content</div>
+          <div style="font-size:0.8rem; color:var(--clr-muted);">Page sections use <code style="font-size:0.75rem;">display:grid</code> with <code style="font-size:0.75rem;">grid-template-columns: 1fr 1fr</code> for the two-column layout.</div>
+        </div>
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border-left:3px solid var(--clr-success);">
+          <div style="font-weight:600; font-size:0.85rem; margin-bottom:0.3rem;">Media Queries — Responsive</div>
+          <div style="font-size:0.8rem; color:var(--clr-muted);">At <code style="font-size:0.75rem;">max-width: 700px</code>, grid switches to <code style="font-size:0.75rem;">1fr</code> (single column) for mobile screens.</div>
+        </div>
+        <div style="padding:0.85rem; background:var(--clr-surface); border-radius:8px; border-left:3px solid #ffaa44;">
+          <div style="font-weight:600; font-size:0.85rem; margin-bottom:0.3rem;">DOM Manipulation</div>
+          <div style="font-size:0.8rem; color:var(--clr-muted);">Tasks and images are added/removed dynamically using <code style="font-size:0.75rem;">createElement</code>, <code style="font-size:0.75rem;">appendChild</code>, and <code style="font-size:0.75rem;">remove()</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="task2.js" defer></script>
+</body>
+</html>
