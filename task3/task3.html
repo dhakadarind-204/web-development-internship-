@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 3 — API Dashboard</title>
+  <link rel="stylesheet" href="task3.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero-panel">
+      <span class="hero-chip">TASK 3</span>
+      <div>
+        <h1>Weather & Joke API Dashboard</h1>
+        <p>Fetch live weather and jokes from public APIs, then inspect the request URL and response details in a polished dark UI.</p>
+      </div>
+    </header>
+
+    <section class="card task-card">
+      <div class="card-heading">
+        <span class="card-chip">TASK 3A</span>
+        <div>
+          <h2>Weather API</h2>
+          <p>Get current weather for any city using Open-Meteo. No API key required.</p>
+        </div>
+      </div>
+      <form id="weatherForm" class="action-row">
+        <label class="visually-hidden" for="cityInput">City name</label>
+        <input id="cityInput" type="text" placeholder="e.g. Bhopal" autocomplete="off" />
+        <button class="button button-primary" type="submit">Get Weather</button>
+      </form>
+      <div class="output-panel">
+        <div id="weatherResult" class="result-content">
+          <p class="hint">Enter a city and press the button to fetch weather.</p>
+        </div>
+        <div class="api-line"><span>API URL</span><code id="weatherUrl">Awaiting request...</code></div>
+      </div>
+    </section>
+
+    <section class="card task-card">
+      <div class="card-heading">
+        <span class="card-chip secondary">TASK 3B</span>
+        <div>
+          <h2>Joke API</h2>
+          <p>Fetch a fresh joke from JokeAPI using a selected category.</p>
+        </div>
+      </div>
+      <form id="jokeForm" class="action-row">
+        <label class="visually-hidden" for="jokeCategory">Joke category</label>
+        <select id="jokeCategory" aria-label="Joke category">
+          <option value="Programming" selected>Programming</option>
+          <option value="Misc">Misc</option>
+          <option value="Dark">Dark</option>
+          <option value="Pun">Pun</option>
+          <option value="Spooky">Spooky</option>
+        </select>
+        <button class="button button-secondary" type="submit">Get Joke</button>
+      </form>
+      <div class="output-panel">
+        <div id="jokeResult" class="result-content">
+          <p class="hint">Choose a category and fetch a joke.</p>
+        </div>
+        <div class="api-line"><span>API URL</span><code id="jokeUrl">Awaiting request...</code></div>
+      </div>
+    </section>
+
+    <section class="card concept-card">
+      <div class="card-heading top-only">
+        <div>
+          <h2>How fetch() Works</h2>
+          <p>An easy flow: request, parse JSON, render the result, and handle errors.</p>
+        </div>
+      </div>
+      <div class="concept-grid">
+        <article>
+          <span class="concept-step">1</span>
+          <h3>Call fetch(url)</h3>
+          <p>Send a GET request to the API endpoint.</p>
+          <pre><code>const response = await fetch(url);</code></pre>
+        </article>
+        <article>
+          <span class="concept-step">2</span>
+          <h3>Parse JSON</h3>
+          <p>Convert the API response into a JavaScript object.</p>
+          <pre><code>const data = await response.json();</code></pre>
+        </article>
+        <article>
+          <span class="concept-step">3</span>
+          <h3>Update DOM</h3>
+          <p>Render the data into the page without reloading.</p>
+          <pre><code>resultElement.innerHTML = ...;</code></pre>
+        </article>
+        <article>
+          <span class="concept-step">4</span>
+          <h3>Handle Errors</h3>
+          <p>Catch failures and display a friendly message.</p>
+          <pre><code>catch (error) { showError(error); }</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="task3.js" defer></script>
+</body>
+</html>
